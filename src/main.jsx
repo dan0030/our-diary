@@ -1,13 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import { SITE_TITLE } from './config.js'
-import './index.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css'
+import './styles/base.css'
+import './styles/components.css'
+import './styles/widgets.css'
+import './styles/content.css'
 
-document.title = SITE_TITLE
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)

@@ -1,21 +1,24 @@
 {
-  "name": "exchange-diary",
+  "name": "our-diary",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite build && wrangler dev",
+    "dev:ui": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "vite build && wrangler deploy",
+    "secret:password": "wrangler secret put ADMIN_PASSWORD"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "pretendard": "^1.3.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
-    "gh-pages": "^6.1.1",
-    "vite": "^5.4.0"
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^5.4.21",
+    "wrangler": "^4.40.0"
   }
 }

@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// GitHub Pages 프로젝트 사이트(https://<아이디>.github.io/<레포이름>/)로 배포한다면
-// base를 반드시 '/레포이름/' 형태로 바꿔주세요.
-// 예: 레포 이름이 'our-diary'라면 base: '/our-diary/'
-// (User/Organization Pages, 즉 <아이디>.github.io 레포라면 base: '/' 유지)
 export default defineConfig({
   plugins: [react()],
-  base: '/our-diary/',
+  server: {
+    // `npm run dev:ui`로 화면만 띄울 때 API는 wrangler dev(8787)로 넘깁니다.
+    proxy: {
+      '/api': 'http://127.0.0.1:8787',
+      '/files': 'http://127.0.0.1:8787',
+    },
+  },
 })
